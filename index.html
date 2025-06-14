@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ohidreza0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😸</text></svg>">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .status-indicator {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-button.active {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .hero-section {
+            padding-top: 100px;
+            min-height: 60vh;
+        }
+    </style>
+</head>
+
+<body class="font-inter bg-slate-900 text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-8">
+                    <span class="text-xl font-bold text-blue-400"></span>
+                    <div class="hidden md:flex space-x-6">
+                        <a href="#hero"
+                            class="nav-link text-slate-300 hover:text-blue-400 transition-colors font-medium">Home</a>
+                        <a href="#about"
+                            class="nav-link text-slate-300 hover:text-blue-400 transition-colors font-medium">About</a>
+                        <a href="#skills"
+                            class="nav-link text-slate-300 hover:text-blue-400 transition-colors font-medium">Skills</a>
+                        <a href="#projects"
+                            class="nav-link text-slate-300 hover:text-blue-400 transition-colors font-medium">Projects</a>
+                        <a href="#timeline"
+                            class="nav-link text-slate-300 hover:text-blue-400 transition-colors font-medium">Timeline</a>
+                        <a href="#journal"
+                            class="nav-link text-slate-300 hover:text-blue-400 transition-colors font-medium">Journal</a>
+                        <a href="#contact"
+                            class="nav-link text-slate-300 hover:text-blue-400 transition-colors font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="mobile-menu" class="md:hidden p-2 rounded-lg hover:bg-slate-800">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-nav" class="hidden md:hidden bg-slate-900 border-t border-slate-700">
+            <div class="px-4 py-2 space-y-1">
+                <a href="#hero" class="block px-3 py-2 rounded-md hover:bg-slate-800">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md hover:bg-slate-800">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md hover:bg-slate-800">Skills</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md hover:bg-slate-800">Projects</a>
+                <a href="#timeline" class="block px-3 py-2 rounded-md hover:bg-slate-800">Timeline</a>
+                <a href="#journal" class="block px-3 py-2 rounded-md hover:bg-slate-800">Journal</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md hover:bg-slate-800">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section bg-slate-900 flex items-center justify-center px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Instagram-style Profile Header -->
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-8">
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <img src="dp.jpg" alt="Ohid Reza"
+                            class="w-40 h-40 rounded-full border-4 border-slate-600 shadow-2xl">
+                        <div
+                            class="absolute -bottom-1 -right-1 bg-green-500 w-6 h-6 rounded-full border-2 border-slate-900 status-indicator">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2">Hey, I'm Ohid 👋</h1>
+
+                    <p class="text-slate-300 leading-relaxed mb-6">
+                        Computer Science undergrad, tech optimist, full-stack developer, and someone who gets curious
+                        way too easily.
+                        Right now, I'm mostly into AI for social impact and building stuff that just works.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="#projects"
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                            View My Work
+                        </a>
+                        <a href="#contact"
+                            class="border border-slate-600 hover:bg-slate-800 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="text-sm text-slate-400 mb-4">Scroll down — it's all here.</p>
+                <i data-lucide="chevron-down" class="w-6 h-6 mx-auto animate-bounce text-slate-400"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 bg-slate-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-semibold text-center mb-16">So who am I, really?</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <p class="text-lg leading-relaxed text-slate-300">
+                        Currently studying Computer Science, expecting to graduate by April 2026.
+                        My journey into tech wasn’t some superhero origin story — I just kept hitting walls and figured
+                        out how to build ladders.
+                        <br><br>
+                        What started as building things to solve my own problems turned into creating tools that quietly
+                        made life easier for others. Now, I focus on crafting thoughtful, useful solutions — the kind
+                        that solve real problems, even before they're noticed.
+                    </p>
+                </div>
+                <div class="bg-slate-700 p-8 rounded-2xl border border-slate-600">
+                    <h3 class="text-xl font-semibold mb-6">My interests float between:</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="brain" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-blue-400"></i>
+                            <span class="text-slate-300">AI/ML (especially when it helps people, not just
+                                profits)</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="code" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-blue-400"></i>
+                            <span class="text-slate-300">Full-stack product engineering (React + Node + clean UI is my
+                                jam)</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="lightbulb" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-blue-400"></i>
+                            <span class="text-slate-300">Random ideas that turn into real builds</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="heart" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-blue-400"></i>
+                            <span class="text-slate-300">Thinking about cats, society, and how we interact with
+                                tech</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="coffee" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-blue-400"></i>
+                            <span class="text-slate-300">Debugging life, one caffeine dose at a time</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mt-12 text-center">
+                <p class="text-lg text-slate-300">
+                    I also spend time petting stray cats, running Model UN conferences (hey HYD fam), and sometimes
+                    teaching
+                    Calculus to 65+ students. Wild, right?
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 bg-slate-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-semibold text-center mb-16">Tech Stack & Skills</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="code-2" class="w-6 h-6 text-blue-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Languages</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">C</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">C++</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">Java</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">Python</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">JavaScript</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">TypeScript</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">PHP</span>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="globe" class="w-6 h-6 text-blue-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Web Dev</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">React</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">Next.js</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">HTML</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">CSS</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">TailwindCSS</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">Bootstrap</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">Swing</span>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="server" class="w-6 h-6 text-blue-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Backend</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">Node.js</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">Express.js</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">PHP</span>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="brain" class="w-6 h-6 text-blue-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold">ML & AI</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">Hugging
+                            Face</span>
+
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">scikit-learn</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">ONNX</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">FastAPI</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">LangChain</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">Diffusers</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">PyTorch
+                            & TensorFlow</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">XGBoost
+                            & LightGBM</span>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="database" class="w-6 h-6 text-blue-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Database</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">MySQL</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">MongoDB</span>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="users" class="w-6 h-6 text-blue-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Soft Skills</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">Mentorship</span>
+                        <span
+                            class="px-3 py-1 bg-slate-700 text-slate-200 rounded-full text-sm font-medium border border-slate-600">Communication</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 bg-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-semibold text-center mb-16">Projects</h2>
+            <p class="text-center text-lg mb-12 max-w-3xl mx-auto text-slate-300">
+                Here's some of the stuff I've built — some solo, some with teams, all from scratch. Grouped by vibe, not
+                by tech buzzwords.
+            </p>
+
+            <!-- Project Tabs -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button
+                    class="tab-button active px-6 py-3 rounded-lg font-medium transition-colors bg-blue-600 text-white"
+                    data-tab="tools">
+                    🔧 Tools I Needed
+                </button>
+                <button
+                    class="tab-button px-6 py-3 rounded-lg font-medium transition-colors bg-slate-700 text-slate-300"
+                    data-tab="ai">
+                    🤖 AI & Assistive
+                </button>
+                <button
+                    class="tab-button px-6 py-3 rounded-lg font-medium transition-colors bg-slate-700 text-slate-300"
+                    data-tab="academic">
+                    🧠 Brain Fuel
+                </button>
+            </div>
+
+            <!-- Tools Tab -->
+            <div id="tools" class="tab-content active">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="project-card bg-slate-700 p-8 rounded-2xl border border-slate-600">
+                        <div class="flex items-start justify-between mb-4">
+                            <h3 class="text-2xl font-semibold text-white">rds nOO</h3>
+                            <i data-lucide="external-link" class="w-5 h-5 text-slate-400"></i>
+                        </div>
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            The university dropped a giant PDF to find courses and teachers during advising week. I
+                            said, nah uh, there’s gotta be a better way.
+                            So, I built one.
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 mb-3">TECH STACK</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-blue-600 text-blue-100 rounded-full text-sm font-medium">Next.js</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-600 text-blue-100 rounded-full text-sm font-medium">Tailwind</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-600 text-blue-100 rounded-full text-sm font-medium">TypeScript</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-600 text-blue-100 rounded-full text-sm font-medium">Python</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-600 pt-4">
+                            <p class="text-sm text-slate-400">
+                                <strong class="text-slate-300">Impact:</strong> Built a clean search-and-filter tool.
+                                Works fast, looks clean. Problem solved.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="project-card bg-slate-700 p-8 rounded-2xl border border-slate-600">
+                        <div class="flex items-start justify-between mb-4">
+                            <h3 class="text-2xl font-semibold text-white">MERN Microsites</h3>
+                            <i data-lucide="external-link" class="w-5 h-5 text-slate-400"></i>
+                        </div>
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            CMS platforms like WordPress felt bloated. Linktree was too basic. A lean, flexible way to
+                            create own little corner of the web without the fluff.
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 mb-3">TECH STACK</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-blue-600 text-blue-100 rounded-full text-sm font-medium">React</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-600 text-blue-100 rounded-full text-sm font-medium">Node.js</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-600 text-blue-100 rounded-full text-sm font-medium">MongoDB</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-600 text-blue-100 rounded-full text-sm font-medium">JWT</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-600 pt-4">
+                            <p class="text-sm text-slate-400">
+                                <strong class="text-slate-300">Impact:</strong> Modular product microsites. Super
+                                customizable, mobile-ready, and client-friendly.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Tab -->
+            <div id="ai" class="tab-content">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="project-card bg-slate-700 p-8 rounded-2xl border border-slate-600">
+                        <div class="flex items-start justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-white"></h3>
+                            <span class="px-2 py-1 bg-yellow-600 text-yellow-100 text-xs rounded-full">WIP</span>
+                        </div>
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            Got a traffic ticket once and the paper made less sense than my handwriting. So now I’m
+                            cooking something that explains — so you actually know what you did (or didn’t) do
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 mb-3">TECH STACK</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-purple-600 text-purple-100 rounded-full text-sm font-medium">NLP</span>
+                                <span class="px-3 py-1 bg-purple-600 text-purple-100 rounded-full text-sm font-medium">
+                                    ⋯ </span>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-600 pt-4">
+                            <p class="text-sm text-slate-400">
+                                <strong class="text-slate-300">Goal:</strong> Hoping this helps others avoid confusion
+                                (and maybe save a few fines).
+                            </p>
+                        </div>
+                    </div>
+                    <div class="project-card bg-slate-700 p-8 rounded-2xl border border-slate-600">
+                        <div class="flex items-start justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-white">CropStop</h3>
+                            <i data-lucide="external-link" class="w-5 h-5 text-slate-400"></i>
+                        </div>
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            Built to help farmers figure out what to plant and what to feed it — even with limited
+                            resources. Toss in some XGBoost and Transformers, and now it's predicting crop outcomes like
+                            it’s got a crystal ball.
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 mb-3">TECH STACK</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-purple-600 text-purple-100 rounded-full text-sm font-medium">React</span>
+                                <span
+                                    class="px-3 py-1 bg-purple-600 text-purple-100 rounded-full text-sm font-medium">Node.js</span>
+                                <span
+                                    class="px-3 py-1 bg-purple-600 text-purple-100 rounded-full text-sm font-medium">IoT</span>
+                                <span
+                                    class="px-3 py-1 bg-purple-600 text-purple-100 rounded-full text-sm font-medium">ML</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-600 pt-4">
+                            <p class="text-sm text-slate-400">
+                                <strong class="text-slate-300">Features:</strong> Smart crop and fertilizer suggestions
+                                powered by predictive modeling.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="project-card bg-slate-700 p-8 rounded-2xl border border-slate-600">
+                        <div class="flex items-start justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-white">SylheTeaa</h3>
+                            <i data-lucide="external-link" class="w-5 h-5 text-slate-400"></i>
+                        </div>
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            Turning spoken Sylheti into text and translations — because some voices deserve better tech.
+                            Built to give an underrepresented language a seat at the digital table.
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 mb-3">TECH STACK</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-purple-600 text-purple-100 rounded-full text-sm font-medium">OpenAI
+                                    Whisper </span>
+                                <span
+                                    class="px-3 py-1 bg-purple-600 text-purple-100 rounded-full text-sm font-medium">Transformers</span>
+                                <span
+                                    class="px-3 py-1 bg-purple-600 text-purple-100 rounded-full text-sm font-medium">PyTorch</span>
+                                <span
+                                    class="px-3 py-1 bg-purple-600 text-purple-100 rounded-full text-sm font-medium">Pandas</span>
+                                <span
+                                    class="px-3 py-1 bg-purple-600 text-purple-100 rounded-full text-sm font-medium">FastAPI</span>
+                                <span
+                                    class="px-3 py-1 bg-purple-600 text-purple-100 rounded-full text-sm font-medium">Docker</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-600 pt-4">
+                            <p class="text-sm text-slate-400">
+                                <strong class="text-slate-300">Impact:</strong> One step toward digital inclusion for
+                                underrepresented languages.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Tab -->
+            <div id="academic" class="tab-content">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="project-card bg-slate-700 p-8 rounded-2xl border border-slate-600">
+                        <div class="flex items-start justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-white">RankBlade</h3>
+                            <i data-lucide="external-link" class="w-5 h-5 text-slate-400"></i>
+                        </div>
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            Born out of the chaos of helping a friend pick the “right” university.
+                            Built a platform to make sense of the UGC 2024 rankings — with features to compare,
+                            shortlist, and track universities, minus the confusion.
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 mb-3">TECH STACK</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-green-600 text-green-100 rounded-full text-sm font-medium">PHP</span>
+                                <span
+                                    class="px-3 py-1 bg-green-600 text-green-100 rounded-full text-sm font-medium">MySQL</span>
+                                <span
+                                    class="px-3 py-1 bg-green-600 text-green-100 rounded-full text-sm font-medium">Bootstrap</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-600 pt-4">
+                            <p class="text-sm text-slate-400">
+                                <strong class="text-slate-300">Purpose:</strong> Compare, shortlist, and manage
+                                university picks with real data.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="project-card bg-slate-700 p-8 rounded-2xl border border-slate-600">
+                        <div class="flex items-start justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-white">Poysha</h3>
+                            <i data-lucide="external-link" class="w-5 h-5 text-slate-400"></i>
+                        </div>
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            Born out of constantly wondering where all my money went.
+                            A simple little widget to track expenses without the headache — just enough to keep spending
+                            in check (or at least try to).
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 mb-3">TECH STACK</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-green-600 text-green-100 rounded-full text-sm font-medium">Java</span>
+                                <span
+                                    class="px-3 py-1 bg-green-600 text-green-100 rounded-full text-sm font-medium">Swing</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-600 pt-4">
+                            <p class="text-sm text-slate-400">
+                                <strong class="text-slate-300">Goal:</strong> Just a personal finance app that doesn't
+                                suck.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="project-card bg-slate-700 p-8 rounded-2xl border border-slate-600">
+                        <div class="flex items-start justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-white">Bagh Chal</h3>
+                            <i data-lucide="external-link" class="w-5 h-5 text-slate-400"></i>
+                        </div>
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            Born out of late-night curiosity and love for old-school strategy.
+                            Recreated the classic Nepali board game where tigers and goats battle brains over brawn —
+                            all inside a retro-style console arcade vibe.
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-slate-400 mb-3">TECH STACK</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-green-600 text-green-100 rounded-full text-sm font-medium">C</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-600 pt-4">
+                            <p class="text-sm text-slate-400">
+                                <strong class="text-slate-300">Learning:</strong> Just for fun, but it taught me a lot
+                                about logic and interaction.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="hidden md:block py-20 px-4 bg-slate-900">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-semibold text-center mb-16">Timeline</h2>
+            <div class="relative">
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-600"></div>
+                <div class="space-y-12">
+                    <div class="timeline-item flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <h3 class="text-xl font-semibold">2021</h3>
+                            <p class="text-slate-300">The world was still figuring out how to live with COVID, and so
+                                was I. I joined House of Youth Dialogue, hoping to make a difference even when
+                                everything felt uncertain. Somehow, I found myself stepping up as General Secretary —
+                                definitely unexpected, but a valuable lesson in leadership and resilience.
+
+                            </p>
+                        </div>
+                        <div class="w-4 h-4 bg-blue-600 rounded-full relative z-10"></div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                    <div class="timeline-item flex items-center">
+                        <div class="w-1/2 pr-8"></div>
+                        <div class="w-4 h-4 bg-blue-600 rounded-full relative z-10"></div>
+                        <div class="w-1/2 pl-8">
+                            <h3 class="text-xl font-semibold">2022</h3>
+                            <p class="text-slate-300">With the pandemic finally easing and university doors opening, I
+                                dove into student life headfirst. Teaching mathematics to O/A level students became a
+                                way to stay grounded — sharing what I knew while figuring out the rest myself. It was a
+                                year of balancing new responsibilities, late-night study sessions, and learning how to
+                                manage time without losing sleep.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <h3 class="text-xl font-semibold">2023</h3>
+                            <p class="text-slate-300">This year was a whirlwind of experiences: leading over 10 Model UN
+                                conferences, mentoring more than 65 students through the ups and downs of calculus
+                                (trust me, we all survived), and dipping toes into academic research. No expert here —
+                                just someone trying to keep up and learn on the job.</p>
+                        </div>
+                        <div class="w-4 h-4 bg-blue-600 rounded-full relative z-10"></div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                    <div class="timeline-item flex items-center">
+                        <div class="w-1/2 pr-8"></div>
+                        <div class="w-4 h-4 bg-blue-600 rounded-full relative z-10"></div>
+                        <div class="w-1/2 pl-8">
+                            <h3 class="text-xl font-semibold">2024</h3>
+                            <p class="text-slate-300">Plunged into AI, full-stack development, and product thinking. It
+                                felt like everything clicked — now building chatbots and tools that aim to solve real
+                                problems, turning ideas into action.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <h3 class="text-xl font-semibold">2025</h3>
+                            <p class="text-slate-300">Still learning, still building, still sometimes clueless but
+                                always curious. If you’re reading this, you’re seeing the latest, slightly improved
+                                edition of me.
+
+                            </p>
+                        </div>
+                        <div class="w-4 h-4 bg-green-500 rounded-full relative z-10 status-indicator"></div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journal Section -->
+    <section id="journal" class="py-20 px-4 bg-slate-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-semibold mb-8">Journal Notes</h2>
+            <p class="text-lg mb-12 text-slate-300">
+                This is my little public journal — thoughts, lessons, maybe a cat photo or two.
+            </p>
+            <div class="bg-slate-700 p-12 rounded-2xl border border-slate-600">
+                <i data-lucide="edit-3" class="w-16 h-16 mx-auto text-blue-400 mb-6"></i>
+                <h3 class="text-2xl font-semibold mb-4">Coming Soon</h3>
+                <p class="text-slate-300 mb-6">
+                    I write when I feel like it. Topics may include:
+                </p>
+                <div class="grid md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-blue-400"></i>
+                        <span class="text-slate-300">Lessons from failed projects</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-blue-400"></i>
+                        <span class="text-slate-300">Ideas I'll probably never build</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-blue-400"></i>
+                        <span class="text-slate-300">Tech thoughts & discussions</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-blue-400"></i>
+                        <span class="text-slate-300">Random life updates</span>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-400 mt-6">
+                    📌 Or not. Depends on how chaotic the semester gets.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 bg-slate-900">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-semibold mb-8">Let's Connect</h2>
+            <p class="text-lg mb-12 text-slate-300">
+                Not looking for anything specific — but always open to good convos or fun collabs.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="mailto:ohidreza0@gmail.com"
+                    class="flex items-center justify-center space-x-3 bg-slate-800 hover:bg-slate-700 px-8 py-4 rounded-xl border border-slate-600 transition-colors">
+                    <i data-lucide="mail" class="w-5 h-5 text-blue-400"></i>
+                    <span class="font-medium">ohidreza0@gmail.com</span>
+                </a>
+                <a href="https://github.com/ohidreza0" target="_blank"
+                    class="flex items-center justify-center space-x-3 bg-slate-800 hover:bg-slate-700 px-8 py-4 rounded-xl border border-slate-600 transition-colors">
+                    <i data-lucide="github" class="w-5 h-5 text-blue-400"></i>
+                    <span class="font-medium">github.com/ohidreza0</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-slate-700 bg-slate-900">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-slate-400">
+                © ohidreza0 | held together by caffeine, panic, and questionable life choices
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileNav.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.add('hidden');
+            });
+        });
+
+        // Project tabs functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetTab = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-blue-600', 'text-white');
+                    btn.classList.add('bg-slate-700', 'text-slate-300');
+                });
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active', 'bg-blue-600', 'text-white');
+                button.classList.remove('bg-slate-700', 'text-slate-300');
+                document.getElementById(targetTab).classList.add('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation links based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-blue-400', 'font-semibold');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-blue-400', 'font-semibold');
+                }
+            });
+        });
+
+        // Mobile timeline responsiveness
+        function handleTimelineResponsive() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            if (window.innerWidth < 768) {
+                timelineItems.forEach(item => {
+                    item.classList.add('flex-col', 'text-center');
+                    const leftDiv = item.querySelector('.w-1\\/2:first-child');
+                    const rightDiv = item.querySelector('.w-1\\/2:last-child');
+                    if (leftDiv) {
+                        leftDiv.classList.remove('w-1/2', 'pr-8', 'text-right');
+                        leftDiv.classList.add('w-full', 'pb-4');
+                    }
+                    if (rightDiv) {
+                        rightDiv.classList.remove('w-1/2', 'pl-8');
+                        rightDiv.classList.add('w-full', 'pt-4');
+                    }
+                });
+            }
+        }
+
+        window.addEventListener('resize', handleTimelineResponsive);
+        handleTimelineResponsive();
+    </script>
+</body>
+
+</html>
