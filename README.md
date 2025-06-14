@@ -9,7 +9,7 @@ Hey! 👋 If you're reading this, you're probably peeking under the hood of my p
 ## General Vibes
 
 - Built using **HTML + Tailwind CSS**
-- Fonts? Fancy! It's using `Montserrat` (with Inter vibes)
+- Fonts? Fancy! It's using `Montserrat`
 - Layout? Responsive and clean (but no clutter allowed)
 - Color Scheme: 
   - Primary: `#343131`
